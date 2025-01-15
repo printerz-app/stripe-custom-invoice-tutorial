@@ -1,4 +1,4 @@
-# Printerz Invoice template example
+# Printerz Custom stripe Invoice template tutorial
 
 Built with :
 - React 
@@ -7,15 +7,6 @@ Built with :
 - TypeScript
 - shadcn UI
 - v0.dev
-
-## Preview
-![Preview](./assets/preview.png)
-
-## How to use
-
-### Want to use it as it is ?
-
-Go download the template from the release page and upload it to your printerz dashboard.
 
 ### Want to modify it ?
 
@@ -49,30 +40,38 @@ yarn dev
 
 You can test the print variable behavior by copy pasting the following code in the console of your browser :
 ```js
-window.printerzRender({
-  "invoiceNumber": "INV-1001",
-  "invoiceDate": "2024-08-15",
-  "customer": {
-    "name": "John Doe",
-    "address": "123 Maple Street, Springfield, IL, 62704"
+window.printerzRender( {
+  invoiceNumber: "123456789",
+  company: {
+    name: "ACME Inc.",
+    address: "123 Main St, Anytown, USA",
+    email: "info@acme.com",
+    phone: "555-123-4567"
   },
-  "invoiceItems": [
+  client: {
+    name: "John Doe",
+    address: "123 Main St, Anytown, USA",
+    email: "john@acme.com"
+  },
+  date: "2022-01-01",
+  dueDate: "2022-01-31",
+  items: [
     {
-      "name": "Widget A",
-      "quantity": 10,
-      "unitPrice": 1999
+      description: "Product 1",
+      quantity: 2,
+      price: 100,
+      total: 200
     },
     {
-      "name": "Gadget B",
-      "quantity": 5,
-      "unitPrice": 4995
-    },
-    {
-      "name": "Thingamajig C",
-      "quantity": 2,
-      "unitPrice": 14950
+      description: "Product 2",
+      quantity: 1,
+      price: 50,
+      total: 50
     }
-  ]
+  ],
+  subtotal: 300,
+  tax: 8,
+  total: 388
 })
 ```
 
